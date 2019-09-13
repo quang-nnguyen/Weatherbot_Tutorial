@@ -1,11 +1,20 @@
 # Weatherbot Tutorial (using the latest release of Rasa NLU and Rasa Core)
 
-Rasa NLU and Rasa Core devs are doing an amazing job improving both of these libraries which results in code changes for one method or another. In fact, since I recorded a Wetherbot tutorial,
-there were quite a few changes which were introduced to Rasa NLU and Rasa Core. On 21st of May 2019, Rasa 1.0 was released with a lot of changes under the hood. This repo contains the updated weatherbot code compatible with the latest release of Rasa.
+Forked from https://github.com/JustinaPetr/Weatherbot_Tutorial
 
-## How to use this repo
+### Install
 
-The code of this repo differs quite significantly from the original video. This is how to use it:
+Install the requirements.
+
+Note: rasa version 1.0.9 is mandatory, newer version of rasa won't work.
+
+```pip install -r requirements.txt```
+
+Download and link spaCy's language model.
+
+```python -m spacy download en_core_web_md```
+
+```python -m spacy link en_core_web_md en```
 
 ### Training the NLU model
 
@@ -24,6 +33,10 @@ The biggest change in how Rasa Core model works is that custom action 'action_we
 1. Start the custom action server by running:  
 
 ``` rasa run actions```  
+
+Tips: add argument `--vv` for debug mode
+
+``` rasa run -vv actions```
 
 2. Open a new terminal and train the Rasa Core model by running:  
 
@@ -44,18 +57,8 @@ To run your assistant in a interactive learning session, run:
 
 ```rasa interactive```  
 
-### Connecting a chatbot to Slack:
-1. Configure the slack app as shown in the video  
-2. Provide the slack configuration tokens in a credentials.yml file  
-3. Make sure custom actions server is running  
-4. Start the agent by running `rasa run`
-5. Start the ngrok on the port 5004  
-6. Provide the url: https://your_ngrok_url/webhooks/slack/webhook to 'Event Subscriptions' page of the slack configuration.  
-7. Talk to you bot.  
 
-I will do my best to keep this repo up-to-date, but if you encounter any issues with using the code, please raise an issue or drop me a message :)
-
-Latest code update: 17/07/2019
+Latest code update: 13/09/2019
 
 Latest compatible Rasa NLU version: 1.0.9
 
