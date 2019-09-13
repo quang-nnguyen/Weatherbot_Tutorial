@@ -16,9 +16,11 @@ Download and link spaCy's language model.
 
 ```python -m spacy link en_core_web_md en```
 
+Enter your ACCESS_KEY to `weatherstack` in `actions.py`. If you does not have the key, get one via https://weatherstack.com/. Without ACCESS_KEY, the bot can't return the weather information.
+
 ### Training the NLU model
 
-Since the release of Rasa 1.0, the training of the NLU models became a lot easier with the new CLI. Train the model by running:  
+Train the *NLU models* by running:  
 
 ```rasa train nlu ```
 
@@ -29,18 +31,18 @@ Once the model is trained, test the model:
 
 ### Training the dialogue model
 
-The biggest change in how Rasa Core model works is that custom action 'action_weather' now needs to run on a separate server. That server has to be configured in a 'endpoints.yml' file.  This is how to train and run the dialogue management model:  
+Custom action 'action_weather' needs to run on a separate server. That server has to be configured in a 'endpoints.yml' file.  This is how to train and run the dialogue management model:  
 1. Start the custom action server by running:  
 
-``` rasa run actions```  
+```rasa run actions```  
 
 Tips: add argument `--vv` for debug mode
 
-``` rasa run -vv actions```
+```rasa run -vv actions```
 
-2. Open a new terminal and train the Rasa Core model by running:  
+2. Open a new terminal and train the *Rasa Core model* by running:  
 
-``` rasa train```  
+```rasa train```  
  
 3. Talk to the chatbot once it's loaded after running:  
 ```rasa shell```  
